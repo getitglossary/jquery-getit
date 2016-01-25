@@ -1,0 +1,92 @@
+{
+  "_args": [
+    [
+      "jquery-getit@github:getitglossary/jquery-getit",
+      "/usr/local/lib/node_modules/generator-jquery-boilerplate"
+    ]
+  ],
+  "_from": "getitglossary/jquery-getit",
+  "_id": "jquery-getit@1.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/generator-jquery-boilerplate/jquery-boilerplate",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/getitglossary/jquery-getit/master/package.json",
+      "gitUrl": "git://github.com/getitglossary/jquery-getit.git",
+      "httpsUrl": "git+https://github.com/getitglossary/jquery-getit.git",
+      "shortcut": "github:getitglossary/jquery-getit",
+      "ssh": "git@github.com:jgetitglossary/jquery-getit.git",
+      "sshUrl": "git+ssh://git@github.com/getitglossary/jquery-getit.git",
+      "type": "github"
+    },
+    "name": "jquery-getit",
+    "raw": "jquery-getit@github:getitglossary/jquery-getit",
+    "rawSpec": "github:getitglossary/jquery-getit",
+    "scope": null,
+    "spec": "github:getitglossary/jquery-getit",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/generator-jquery-boilerplate"
+  ],
+  "_resolved": "git://github.com/getitglossary/jquery-getit.git#4af1f884f908b335cde19f1522eac19b680a9dcf",
+  "_shasum": "857ca67777631d17813817c4eb9d9394ffdec6dd",
+  "_shrinkwrap": null,
+  "_spec": "jquery-getit@github:getitglossary/jquery-getit",
+  "_where": "/usr/local/lib/node_modules/generator-jquery-boilerplate",
+  "author": {
+    "email": "robin@ultrasimplified.com",
+    "name": "Robin Layfield",
+    "url": "https://github.com/ultrasimplified"
+  },
+  "bugs": {
+    "url": "https://github.com/getitglossary/jquery-getit/issues"
+  },
+  "contributors": [
+    {
+      "name": "Robin Layfield",
+      "email": "robin@ultrasimplified.com",
+      "url": "https://github.com/ultrasimplified"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1.5.1"
+  },
+  "description": "Use this plugin to link terms to definitions in the GET-IT Glossary",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-karma": "^0.12.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-qunit": "^0.1.5",
+    "phantomjs": "^1.9.18",
+    "qunitjs": "^1.19.0"
+  },
+  "gitHead": "857ca67777631d17813817c4eb9d9394ffdec6dd",
+  "homepage": "http://getitglossary.org",
+  "keywords": [
+    "jquery",
+    "jquery-plugin",
+    "plugins"
+  ],
+  "license": "MIT",
+  "name": "jquery-getit",
+  "optionalDependencies": {},
+  "readme": "",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getitglossary/jquery-getit.git"
+  },
+  "scripts": {
+    "test": "grunt travis --verbose"
+  },
+  "version": "1.0.0"
+}
