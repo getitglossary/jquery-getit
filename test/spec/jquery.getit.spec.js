@@ -4,10 +4,10 @@
 	var $testCanvas = $("#testCanvas");
 	var $fixture = null;
 
-	QUnit.module("jQuery Boilerplate", {
+	QUnit.module("jQuery GET-IT", {
 		beforeEach: function () {
 			// fixture is the element where your jQuery plugin will act
-			$fixture = $("<div/>");
+			$fixture = $("<p>");
 
 			$testCanvas.append($fixture);
 		},
@@ -18,25 +18,25 @@
 	});
 
 	QUnit.test("is inside jQuery library", function ( assert ) {
-		assert.equal(typeof $.fn.defaultPluginName, "function", "has function inside jquery.fn");
-		assert.equal(typeof $fixture.defaultPluginName, "function", "another way to test it");
+		assert.equal(typeof $.fn.getit, "function", "has function inside jquery.fn");
+		assert.equal(typeof $fixture.getit, "function", "another way to test it");
 	});
 
 	QUnit.test("returns jQuery functions after called (chaining)", function ( assert ) {
-		assert.equal(typeof $fixture.defaultPluginName().on, "function", "'on' function must exist after plugin call");
+		assert.equal(typeof $fixture.getit().on, "function", "'on' function must exist after plugin call");
 	});
 
 	QUnit.test("caches plugin instance", function ( assert ) {
-		$fixture.defaultPluginName();
-		assert.ok($fixture.data("plugin_defaultPluginName"), "has cached it into a jQuery data");
+		$fixture.getit();
+		assert.ok($fixture.data("plugin_getit"), "has cached it into a jQuery data");
 	});
 
 	QUnit.test("enable custom config", function ( assert ) {
-		$fixture.defaultPluginName({
+		$fixture.getit({
 			foo: "bar"
 		});
 
-		var pluginData = $fixture.data("plugin_defaultPluginName");
+		var pluginData = $fixture.data("plugin_getit");
 
 		assert.deepEqual(pluginData.settings, {
 			propertyName: "value",
@@ -44,13 +44,16 @@
 		}, "extend plugin settings");
 
 	});
+/*
 
 	QUnit.test("changes the element text", function ( assert ) {
-		$fixture.defaultPluginName();
+		$fixture.getit();
 
 		assert.equal($fixture.text(), "jQuery Boilerplate");
 	});
+*/
 
+/*
 	QUnit.test("has #yourOtherFunction working as expected", function ( assert ) {
 		$fixture.defaultPluginName();
 
@@ -60,5 +63,6 @@
 		instance.yourOtherFunction(expectedText);
 		assert.equal($fixture.text(), expectedText);
 	});
+*/
 
 }(jQuery, QUnit));

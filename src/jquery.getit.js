@@ -49,7 +49,7 @@
     						    //term = $(this).data("term");
     						    if($(this).data("term"))
     						    {
-                                $(this).css('border-bottom','2px dashed rebeccapurple');
+                                $(this).css("border-bottom","2px dashed rebeccapurple");
     						        console.log("Term >>> " + $(this).data("term"));
                             }
     						});

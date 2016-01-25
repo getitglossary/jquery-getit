@@ -1,16 +1,15 @@
 {
-	"name": "jquery-boilerplate",
-	"version": "4.0.0",
-	"homepage": "http://jqueryboilerplate.com",
+	"name": "jquery-getit",
+	"version": "1.0.0",
+	"homepage": "http://getitglossary.org",
 	"authors": [
-		"Zeno Rocha <hi@zenorocha.com>"
+		"Robin Layfield <robin@ultrasimplified.com>"
 	],
-	"description": "A jump-start for jQuery plugins development.",
-	"main": "src/jquery.boilerplate.js",
+	"description": "Use this plugin to link terms to definitions in the GET-IT Glossary",
+	"main": "src/jquery.getit.js",
 	"keywords": [
 		"jquery",
 		"plugin",
-		"boilerplate",
 		"jquery-plugin",
 		"jquery-boilerplate"
 	],
