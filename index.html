@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="GET-IT Glossary jQuery plugin : Jquery plugin for accessing definitions from the GET-IT glossary">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>GET-IT Glossary jQuery plugin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/getitglossary/jquery-getit">View on GitHub</a>
+
+          <h1 id="project_title">GET-IT Glossary jQuery plugin</h1>
+          <h2 id="project_tagline">Jquery plugin for accessing definitions from the GET-IT glossary</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/getitglossary/jquery-getit/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/getitglossary/jquery-getit/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="about-this-plugin" class="anchor" href="#about-this-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About this plugin</h3>
+
+<p>This <strong>jQuery</strong> plugin allows you to connect any website to the <a href="http://getitglossary.org/">GET-IT Glossary</a> of definitions of medical terms. It is easy to use and will scan web page copy for tagged terms.</p>
+
+<h3>
+<a id="plugin-installation" class="anchor" href="#plugin-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugin installation</h3>
+
+<p>You can install the plugin from the commandline using <strong>Bower</strong> or <strong>NPM</strong> or simply download this repository and copy the <strong>dist</strong> folder into your web site javascript folder.</p>
+
+<h4>
+<a id="installing-with-bower" class="anchor" href="#installing-with-bower" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing with Bower</h4>
+
+<p>Run this command from the root of your website:</p>
+
+<pre><code>bower install getitglossary/jquery-getit
+</code></pre>
+
+<h4>
+<a id="installing-with-npm-node-package-manager" class="anchor" href="#installing-with-npm-node-package-manager" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing with NPM (Node Package Manager)</h4>
+
+<p>Run this command from the root of your website:</p>
+
+<pre><code>npm install getitglossary/jquery-getit
+</code></pre>
+
+<h3>
+<a id="preparing-your-website-copy" class="anchor" href="#preparing-your-website-copy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preparing your website copy</h3>
+
+<p><strong>jquery-getit</strong> will parse through the page (or a specific element, eg. <strong>.main-content</strong>) and look for text that is wrapped with a <strong>cite</strong> tag. If this text matches a term in the GET-IT Glossary, or if it has an attribute of <strong>data-term</strong> then <strong>jquery-getit</strong> will style this term and link a popup to it that provides the user with a detailed definition and links to the GET-IT Glossary.</p>
+
+<p>Examples:<br>
+Text is the same as the term. The plugin is not case-sensitive so will match both 'Certainty' and 'certainty'  </p>
+
+<p><code>&lt;cite&gt;certainty of the evidence&lt;/cite&gt;</code></p>
+
+<p>Text is different or a variation of the term. Use the <strong>data-term</strong> attribute to specify which term to link to. There is a small performance benefit to be gained from always using the data-attribute.  </p>
+
+<p><code>&lt;cite data-term="Number Needed to Harm"&gt;NNH&lt;/cite&gt;</code></p>
+
+<p>You can view a table of current terms, here:<br>
+<a href="http://getitglossary.org/dev/terms">List of terms in the <strong>GET-IT Glossary</strong></a></p>
+
+<h3>
+<a id="initialising-and-running-the-plugin" class="anchor" href="#initialising-and-running-the-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initialising and running the plugin</h3>
+
+<h4>
+<a id="option-glossary" class="anchor" href="#option-glossary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: Glossary</h4>
+
+<p>This will nominate a specific instance of the GET-IT Glossary for the plugin to link to. This is useful for international or audience-specific versions of the glossary (eg. <strong>espanol</strong> or <strong>kids</strong>). If this is not set, the Glossary will default to the main instance at (<a href="http://getitglossary.org">http://getitglossary.org</a>).</p>
+
+<h5>
+<a id="option-style" class="anchor" href="#option-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: Style</h5>
+
+<p>You can customise the <strong>cite</strong> link style. We recommend differentiating it from standard web links, either through the use of an accent colour or alternative styling, eg. dashed underline, box, bold or italic type.</p>
+
+<h3>
+<a id="plugin-initialisation-examples" class="anchor" href="#plugin-initialisation-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugin initialisation examples</h3>
+
+<p>Initialise the plugin and scan the target element for <code>&lt;cite&gt;</code> tags:<br>
+<code>$('.element').getit();</code></p>
+
+<p>Initialise the plugin with the Spanish version of the Glossary:<br>
+<code>$('.element').getit({
+  glossary: 'es.getitglossary.org';
+});</code></p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>Developer: Robin Layfield (<a href="https://github.com/ultrasimplified" class="user-mention">@ultrasimplified</a>)<br>
+Producer: Douglas Badenoch<br>
+Designer: Tom Brooks</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with this plugin? [contact support] or raise an issue in the <a href="https://github.com/getitglossary/jquery-getit">Github repository</a> and we’ll help you sort it out.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">GET-IT Glossary jQuery plugin maintained by <a href="https://github.com/getitglossary">getitglossary</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
