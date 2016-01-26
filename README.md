@@ -43,7 +43,7 @@ You can view a table of current terms, here:
   
 ###Initialising and running the plugin
   
-####Option: Glossary
+#####Option: Glossary
 This will nominate a specific instance of the GET-IT Glossary for the plugin to link to. This is useful for international or audience-specific versions of the glossary (eg. __espanol__ or __kids__). If this is not set, the Glossary will default to the main instance at (http://getitglossary.org).
 
 #####Option: Style
