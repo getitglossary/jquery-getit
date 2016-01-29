@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/getitglossary/jquery-getit">View on GitHub</a>
 
           <h1 id="project_title">GET-IT Glossary jQuery plugin</h1>
-          <h2 id="project_tagline">Jquery plugin for accessing definitions from the GET-IT glossary</h2>
+          <h2 id="project_tagline">jQuery plugin for accessing definitions from the GET-IT glossary</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/getitglossary/jquery-getit/zipball/master">Download this project as a .zip file</a>
@@ -63,11 +63,11 @@
 <p><strong>jquery-getit</strong> will parse through the page (or a specific element, eg. <strong>.main-content</strong>) and look for text that is wrapped with a <strong>cite</strong> tag. If this text matches a term in the GET-IT Glossary, or if it has an attribute of <strong>data-term</strong> then <strong>jquery-getit</strong> will style this term and link a popup to it that provides the user with a detailed definition and links to the GET-IT Glossary.</p>
 
 <p>Examples:<br>
-Text is the same as the term. The plugin is not case-sensitive so will match both 'Certainty' and 'certainty'  </p>
+1. Text is the same as the term. The plugin is not case-sensitive so will match both 'Certainty' and 'certainty'  </p>
 
 <p><code>&lt;cite&gt;certainty of the evidence&lt;/cite&gt;</code></p>
 
-<p>Text is different or a variation of the term. Use the <strong>data-term</strong> attribute to specify which term to link to. There is a small performance benefit to be gained from always using the data-attribute.  </p>
+<p>2. Text is different or a variation of the term. Use the <strong>data-term</strong> attribute to specify which term to link to. There is a small performance benefit to be gained from always using the data-attribute.  </p>
 
 <p><code>&lt;cite data-term="Number Needed to Harm"&gt;NNH&lt;/cite&gt;</code></p>
 
@@ -95,7 +95,7 @@ Text is the same as the term. The plugin is not case-sensitive so will match bot
 
 <p>Initialise the plugin with the Spanish version of the Glossary:<br>
 <code>$('.element').getit({
-  glossary: 'es.getitglossary.org';
+  glossary: 'es.getitglossary.org'
 });</code></p>
 
 <h3>
