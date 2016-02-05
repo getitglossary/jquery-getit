@@ -11,6 +11,9 @@ This __jQuery__ plugin allows you to connect any website to the [GET-IT Glossary
 ###Plugin installation
 You can install the plugin from the commandline using __Bower__ or __NPM__ or simply download this repository and copy the __dist__ folder into your web site javascript folder.
   
+####Manual installation
+
+Download the tarball then copy all the files from /dist/ into your scripts and css folders. Be sure to add in a call to jQuery as well as the getit script in the header section of your site.
   
 ####Installing with Bower
 

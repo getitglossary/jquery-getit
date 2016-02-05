@@ -24,7 +24,8 @@
 		// Create the defaults once
 		var pluginName = "getit",
 				defaults = {
-				propertyName: "value"
+				glossary: "getitglossary.org",
+				style: "border-bottom: 2px dashed rebeccapurple",
 		};
 
 		// The actual plugin constructor
@@ -57,7 +58,8 @@
     						    //term = $(this).data("term");
     						    if($(this).data("term"))
     						    {
-                                $(this).css("border-bottom","2px dashed rebeccapurple");
+                                $(this).css(this.style);
+    						        console.log("Glossary >>> " + this.glossary);
     						        console.log("Term >>> " + $(this).data("term"));
                             }
     						});

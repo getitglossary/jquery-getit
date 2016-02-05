@@ -15,9 +15,10 @@
 
 		// Create the defaults once
 		var pluginName = "getit",
-				defaults = {
-				propertyName: "value"
-		};
+		    defaults = {
+				    glossary: "getitglossary.org",
+                    style: "border-bottom: 2px dashed rebeccapurple",
+		    };
 
 		// The actual plugin constructor
 		function Plugin ( element, options ) {
@@ -41,16 +42,17 @@
 						// and this.settings
 						// you can add more functions like the one below and
 						// call them like the example bellow
-						this.crawl();
+						this.crawl( this.element, this.options);
 				},
-				crawl: function () {
+				crawl: function (el, options) {
 						// some logic
 						$("cite").each( function(){
     						    //term = $(this).data("term");
     						    if($(this).data("term"))
     						    {
-                                $(this).css("border-bottom","2px dashed rebeccapurple");
-    						        console.log("Term >>> " + $(this).data("term"));
+                                //$(this).css( options );
+    						        console.log( this.settings.glossary  );
+    						        console.log("Term >>> " + $(this).data("term") );
                             }
     						});
 				}
