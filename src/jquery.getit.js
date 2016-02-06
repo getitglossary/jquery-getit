@@ -16,7 +16,7 @@
 		// Create the defaults once
 		var pluginName = "getit",
 		    defaults = {
-				    glossary: "getitglossary.org",
+				    glossary: "es.getitglossary.org",
 				    title: "Click to view the GET-IT Glossary definition of this term",
 		    };
 
@@ -51,6 +51,7 @@
                             console.log( options.glossary );
                             console.log($(this));
                             $(this).addClass( "getit-definition" );
+                            $(this).prop( "title" ) = options.title;
     						    
     						    if($(this).data("term"))
     						    {

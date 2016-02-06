@@ -1,6 +1,7 @@
 .getit-definition {
     color: rebeccapurple;
-    border-bottom: 1px dashed rebeccapurple;
+    border-bottom: 2px dotted rebeccapurple;
+    font-style:normal;
 }
 
 #getit_subtitle {

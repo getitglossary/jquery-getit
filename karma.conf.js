@@ -3,8 +3,11 @@ module.exports = function(config) {
     files: [
 			'node_modules/jquery/dist/jquery.js',
             'dist/jquery.getit.min.js',
+            'dist/jquery.getit.css',
+            'assets/js/jquery.toolpop.js',
+            'assets/css/jquery.toolpop.css',
 			'test/setup.js',
-      'test/spec/*'
+            'test/spec/*'
     ],
     frameworks: ['qunit'],
 		autoWatch: true
