@@ -1,0 +1,30 @@
+.getit-definition {
+    color: rebeccapurple;
+    border-bottom: 1px dashed rebeccapurple;
+}
+
+#getit_subtitle {
+  font-size: small;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+
+#getit_definition {
+    border: 1px solid grey;
+    background: white;
+    padding: 10px;
+}
+
+#getit_definition strong {
+  color: rebeccapurple;
+}
+
+#getit_terms {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 18px !important;
+}
+
+#getit_subtitle {
+margin-top: -10px; display:block;
+}

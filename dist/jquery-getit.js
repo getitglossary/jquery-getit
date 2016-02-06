@@ -1,3 +1,11 @@
+/*
+ *  jquery-getit - v1.0.0
+ *  Use this plugin to link terms to definitions in the GET-IT Glossary
+ *  http://getitglossary.org
+ *
+ *  Made by Robin Layfield
+ *  Under MIT License
+ */
 // the semi-colon before function invocation is a safety net against concatenated
 // scripts and/or other plugins which may not be closed properly.
 ;(function ( $, window, document, undefined ) {
@@ -17,7 +25,7 @@
 		var pluginName = "getit",
 		    defaults = {
 				    glossary: "getitglossary.org",
-                    style: "border-bottom: 2px dashed rebeccapurple",
+				    title: "Click to view the GET-IT Glossary definition of this term",
 		    };
 
 		// The actual plugin constructor
@@ -27,7 +35,7 @@
 				// more objects, storing the result in the first object. The first object
 				// is generally empty as we don't want to alter the default options for
 				// future instances of the plugin
-				this.settings = $.extend( {}, defaults, options );
+				this.options = $.extend( {}, defaults, options );
 				this._defaults = defaults;
 				this._name = pluginName;
 				this.init();
@@ -48,10 +56,12 @@
 						// some logic
 						$("cite").each( function(){
     						    //term = $(this).data("term");
+                            console.log( options.glossary );
+                            console.log($(this));
+                            $(this).addClass( "getit-definition" );
+    						    
     						    if($(this).data("term"))
     						    {
-                                //$(this).css( options );
-    						        console.log( this.settings.glossary  );
     						        console.log("Term >>> " + $(this).data("term") );
                             }
     						});
