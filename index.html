@@ -54,11 +54,11 @@
 <p>Finally call the code in your page. It is recommended that you attach it to the element that contains the definitons. In this example, this is a <strong>&lt;div&gt;</strong> with an <strong>id</strong> of <strong><em>main-content</em></strong>.</p>
 <p>script example</p>
 <pre><code>
-<script>
+&lt;script&gt;
         $(document).ready( function(){
             $('#main-content').getit();
         });
-</script>
+&lt;/script&gt;
 </code></pre>
 <hr/>
 <h4>
@@ -124,22 +124,22 @@
 
 <p>Initialise the plugin and scan the target element for <code>&lt;cite&gt;</code> tags:</p>
 <pre><code>
-    <script>
+    &lt;script&gt;
         $(document).ready( function(){
             $('#main-content').getit();
         });
-</script>
+&lt;/script&gt;
 </code></pre>
 
 <p>Initialise the plugin with the Spanish version of the Glossary:</pre>
 <pre><code>
-    <script>
+    &lt;script&gt;
         $(document).ready( function(){
             $('#main-content').getit({
                 glossary: 'es.getitglossary.org',
             });
         });
-</script>
+&lt;/script&gt;
 </code></pre>
 <br/>
 <p>In our example above, clicking on the term 'fair tests' will return this popup definition, itself containing links to other definitions.</p>
