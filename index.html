@@ -53,9 +53,12 @@
 <pre><code>&lt;script src="<em>/path/to/js/folder/</em>jquery-getit.min.js"&gt;</code></pre>
 <p>Finally call the code in your page. It is recommended that you attach it to the element that contains the definitons. In this example, this is a <strong>&lt;div&gt;</strong> with an <strong>id</strong> of <strong><em>main-content</em></strong>.</p>
 <p>script example</p>
-<pre><code>$(document).ready( function(){
-    $('#main-content').getit();
-});
+<pre><code>
+<script>
+        $(document).ready( function(){
+            $('#main-content').getit();
+        });
+</script>
 </code></pre>
 <hr/>
 <h4>
@@ -119,13 +122,25 @@
 <h3>
 <a id="plugin-initialisation-examples" class="anchor" href="#plugin-initialisation-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugin initialisation examples</h3>
 
-<p>Initialise the plugin and scan the target element for <code>&lt;cite&gt;</code> tags:<br>
-<code>$('#main-content').getit();</code></p>
+<p>Initialise the plugin and scan the target element for <code>&lt;cite&gt;</code> tags:</p>
+<pre><code>
+    <script>
+        $(document).ready( function(){
+            $('#main-content').getit();
+        });
+</script>
+</code></pre>
 
-<p>Initialise the plugin with the Spanish version of the Glossary:<br>
-<code>$('#main-content').getit({
-  glossary: 'es.getitglossary.org'
-});</code></p>
+<p>Initialise the plugin with the Spanish version of the Glossary:</pre>
+<pre><code>
+    <script>
+        $(document).ready( function(){
+            $('#main-content').getit({
+                glossary: 'es.getitglossary.org',
+            });
+        });
+</script>
+</code></pre>
 <br/>
 <p>In our example above, clicking on the term 'fair tests' will return this popup definition, itself containing links to other definitions.</p>
     <img src="images/example.png" alt="example" width="451" height="204" style="border: 1px solid black">
