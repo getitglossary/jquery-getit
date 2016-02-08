@@ -33,15 +33,15 @@
 
 	QUnit.test("enable custom config", function ( assert ) {
 		$fixture.getit({
-			glossary: "getitglossary.org",
-			title: "Click to view the GET-IT Glossary definition of this term",
+		    glossary: "getitglossary.org",
+		    title: "Click to view the GET-IT Glossary definition of this term",
 		});
 
 		var pluginData = $fixture.data("plugin_getit");
 
 		assert.deepEqual(pluginData.options, {
-			glossary: "getitglossary.org",
-			title: "Click to view the GET-IT Glossary definition of this term",
+		    glossary: "getitglossary.org",
+		    title: "Click to view the GET-IT Glossary definition of this term",
 		}, "extend plugin options");
 
 	});

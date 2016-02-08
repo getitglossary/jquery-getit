@@ -2,19 +2,23 @@
 <html>
 	<head>
 		<title>GET-IT jQuery plugin</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="../assets/js/jquery.toolpop.js"></script>
-		<script src="../dist/jquery.getit.js"></script>
-		<link rel="stylesheet" href="../assets/css/jquery.toolpop.css" />
 		<link rel="stylesheet" href="../dist/jquery.getit.css" />
 	</head>
 	<body>
     	<h1>Why do we need fair tests of treatments?</h1>
     	<p>Modern medicine has been hugely successful at reducing the impact of disease and increasing life expectancy. In spite of this, too much medical decision making is based on insufficient <cite data-term="evidence">evidence</cite>. As a result, doctors and other health professionals have sometimes harmed patients instead of helping them. It is essential that our decisions about what <cite data-term="treatment">treatments</cite> to use are based on <cite data-term="fair comparison of treatments">fair tests</cite> of their <cite data-term="treatment effect">effects</cite>.</p>
+    	    
+    	    <!-- SCRIPTS BLOCK -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="../assets/js/jquery.toolpop.js"></script>
+		<script src="../dist/jquery.getit.js"></script>
+		
 		<script>
+		    /* Run through all <p> tags on the page and scan for <cite> */
 			$(function() {
 				$('p').getit({ glossary: "getitglossary.org"});
 			});
 		</script>
+		<!-- END OF SCRIPTS -->
 	</body>
 </html>

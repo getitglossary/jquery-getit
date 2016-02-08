@@ -14,7 +14,7 @@
       $el = $(el).attr("data-tooltip", i);
 
       // Make DIV and append to page 
-      var $tooltip = $('<div class="tooltip" data-tooltip="' + i + '"><h2>' + $el.data('term') + '</h2><p>' + $el.data('definition') + '</p><p>' + $el.data('getit_link') + '</p><div class="arrow"></div></div>').appendTo("body");
+      var $tooltip = $('<div class="tooltip" data-tooltip="' + i + '"><h2>' + $el.data("term") + '</h2><p>' + $el.data("definition") + '</p><p>' + $el.data("getitLink") + '</p><div class="arrow"></div></div>').appendTo("body");
 
       // Position right away, so first appearance is smooth
       var linkPosition = $el.offset();
@@ -27,10 +27,9 @@
       $el
 
       // Mouseenter
-      .on('click',function() {
+      .on("click",function() {
         $this = $(this);
-
-        $tooltip = $('div[data-tooltip=' + $this.data('tooltip') + ']');
+        $tooltip = $("div[data-tooltip=" + $this.data("tooltip") + "]");
 
         // Reposition tooltip, in case of page movement e.g. screen resize                        
         var linkPosition = $this.offset();
@@ -57,13 +56,13 @@
 
 (function($) {
   $(document).ready(function() {
-     $("a[data-term]").tooltips();
+     $("cite[data-term]").tooltips();
      
      $(document).keyup(function(e) {
         if (e.keyCode == 27) { 
             // Remove all classes
           $(".tooltip").each( function(){
-             if($(this).hasClass('active')){
+             if($(this).hasClass("active")){
                 $(this).addClass("out");
                 var $this = $(this);
                 setTimeout( function() {
@@ -75,7 +74,7 @@
     });
            
     $(document).click(function(e) {
-          if(e.target.nodeName == 'A') return;
+          if(e.target.nodeName == "A") return;
           $(".tooltip").each( function(){
              if($(this).hasClass('active')){
                 $(this).addClass("out");

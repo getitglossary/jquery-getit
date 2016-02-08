@@ -24,7 +24,7 @@
 		// Create the defaults once
 		var pluginName = "getit",
 		    defaults = {
-				    glossary: "es.getitglossary.org",
+				    glossary: "getitglossary.org",
 				    title: "Click to view the GET-IT Glossary definition of this term",
 		    };
 
@@ -55,12 +55,16 @@
 				crawl: function (el, options) {
 						// some logic
 						$("cite").each( function(){
-    						    //term = $(this).data("term");
-                            console.log( options.glossary );
-                            console.log($(this));
+        				        if ( $( this ).data( "processed" ) ){
+                              return false;
+                            }
+    						    var term = $(this).data("term").replace(/\s/g, "+" );
                             $(this).addClass( "getit-definition" );
-                          //  $(this).prop( "title" ) = options.title;
-    						    
+                            $(this).prop( "title", options.title );
+                            $(this).data( "processed", true );
+                            $(this).data( "definition", "Definition goes here" );
+                            $(this).data( "getit-link", "http://" + options.glossary + "/" + term );
+                            console.log( $(this).data() );
     						    if($(this).data("term"))
     						    {
     						        console.log("Term >>> " + $(this).data("term") );
