@@ -74,7 +74,7 @@
     });
            
     $(document).click(function(e) {
-          if(e.target.nodeName == "A") return;
+          if(e.target.nodeName == "CITE") return;
           $(".tooltip").each( function(){
              if($(this).hasClass('active')){
                 $(this).addClass("out");

@@ -51,10 +51,25 @@
                               return false;
                             }
     						    var term = $(this).data("term").replace(/\s/g, "+" );
+                            var definition = null;
+                            
+                            $.ajax({
+                              type: "GET",
+                              url: "http://" + options.glossary + "/v1/terms/" + term,
+                              async: false,
+                              contentType: "application/json",
+                              dataType: "jsonp",
+                              success: function( json ){
+                                  console.log( "output >>> " + json );
+                              }
+                              
+                            });
+                            
+                            console.log( "definition >>> " + definition );
                             $(this).addClass( "getit-definition" );
                             $(this).prop( "title", options.title );
                             $(this).data( "processed", true );
-                            $(this).data( "definition", "Definition goes here" );
+                            $(this).data( "definition", definition );
                             $(this).data( "getit-link", "http://" + options.glossary + "/" + term );
                             console.log( $(this).data() );
     						    if($(this).data("term"))

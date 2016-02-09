@@ -39,7 +39,7 @@ margin-top: -10px; display:block;
 
 .tooltip, .arrow:after {
   background: ivory;
-  border: 1px solid grey;
+  border: 2px solid #AF5B6F;
 }
 
 .tooltip {
