@@ -19,7 +19,7 @@
 				    glossary: "getitglossary.org",
 				    title: "Click to view the GET-IT Glossary definition of this term",
 				    linkTitle: "View the full definition at {{glossary}} &rarr;",
-				    notFound: "Definition not found. It may have been removed or updated. Please contact the site administrator",
+				    notFound: "Definition not found. It may have been removed or updated. Please contact the site administrator.",
 				    titleNotFound: "Term not found",
 		    };
 
@@ -62,7 +62,6 @@
                     var term = $(this).data("term");
                     if( undefined  === term ){
                         term = $(this).text();
-                        console.log( term );
                     }
                     
                     // replace spaces
@@ -91,6 +90,16 @@
                            definition = json[0].definition;
                         }
                         
+                        // post-process definition to link to linked terms
+                        	var pattern = /(\[)([\w\s,\'+-]*)(\|)([\w\s,\'+-]*)(\])/g;
+                        var pattern_alt = /(\[)([\w\s,\']*)(\])/g;
+	
+                        	// replace with bold terms
+                        var replacement = "<strong>$2</strong>";
+                        	
+                        	definition = definition.replace( pattern, replacement );
+                        	definition = definition.replace( pattern_alt, replacement );
+                        	
                         // Make DIV and append to page 
                         var $tooltip = $( "<div class=\"getit-tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data( "getitLink" ) + "</p><div class=\"getit-arrow\"></div></div>" ).appendTo( "body" );
     
