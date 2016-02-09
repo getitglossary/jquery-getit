@@ -53,9 +53,9 @@ margin-top: -10px; display:block;
   margin-top: 20px;
   font: 14px "Helvetica Neue", Sans-Serif;
   text-decoration: none;
--webkit-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
--moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
+  -moz-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
   width: 30%;
 }
 .arrow {
@@ -67,6 +67,7 @@ box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
   margin-left: -35px;
   bottom: -16px;
 }
+
 .arrow:after {
   content: "";
   position: absolute;
@@ -83,6 +84,7 @@ box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
   -o-transform:      rotate(45deg);
   transform:        rotate(45deg);
 }
+
 .tooltip.active {
   pointer-events:all;
   opacity: 1;
@@ -92,7 +94,21 @@ box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
   -ms-transition:     all 0.2s ease;
   -o-transition:      all 0.2s ease;
 }
+
 .tooltip.out {
   opacity: 0;
   margin-top: -20px;
+}
+
+.getit-notfound {
+   border: 2px solid #C00;     
+   background: #C00;
+}
+
+.getit-notfound h2, .getit-notfound p {
+    color: whitesmoke;
+}
+
+.getit-notfound .arrow {
+    display: none;
 }

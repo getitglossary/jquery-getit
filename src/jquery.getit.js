@@ -88,7 +88,7 @@
                         }
                         
                         // Make DIV and append to page 
-                        var $tooltip = $("<div class=\"tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data("getitLink") + "</p><div class=\"arrow\"></div></div>").appendTo("body");
+                        var $tooltip = $( "<div class=\"tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data( "getitLink" ) + "</p><div class=\"arrow\"></div></div>" ).appendTo( "body" );
     
                         // Position right away, so first appearance is smooth
                         var linkPosition = $(this).offset();
@@ -97,6 +97,10 @@
                             top: linkPosition.top - $tooltip.outerHeight() - 13,
                             left: linkPosition.left - ($tooltip.width()/2),
                         });
+                        
+                        if( json[0] === undefined ){
+                            $tooltip.addClass( "getit-notfound" );
+                        }
                         
                     });
                     
