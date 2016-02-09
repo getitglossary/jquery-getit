@@ -5,44 +5,18 @@
     cursor: pointer;
 }
 
-#getit_subtitle {
-  font-size: small;
-  margin-top: -20px;
-  margin-bottom: 10px;
-}
-
-#getit_definition {
-    border: 1px solid grey;
-    background: white;
-    padding: 10px;
-}
-
-#getit_definition strong {
-  color: rebeccapurple;
-}
-
-#getit_terms {
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 18px !important;
-}
-
-#getit_subtitle {
-margin-top: -10px; display:block;
-}
-
 /**
 * POPUP TOOLTIP CSS
 *
 * with thanks to CSS TRICKS (https://css-tricks.com/bubble-point-tooltips-with-css3-jquery/)
 */
 
-.tooltip, .arrow:after {
+.getit-tooltip, .getit-arrow:after {
   background: whitesmoke;
   border: 2px solid rebeccapurple;
 }
 
-.tooltip {
+.getit-tooltip {
   pointer-events: none;
   opacity: 0;
   display: inline-block;
@@ -58,7 +32,7 @@ margin-top: -10px; display:block;
   box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
   width: 30%;
 }
-.arrow {
+.getit-arrow {
   width: 70px;
   height: 16px;
   overflow: hidden;
@@ -68,7 +42,7 @@ margin-top: -10px; display:block;
   bottom: -16px;
 }
 
-.arrow:after {
+.getit-arrow:after {
   content: "";
   position: absolute;
   left: 20px;
@@ -85,7 +59,7 @@ margin-top: -10px; display:block;
   transform:        rotate(45deg);
 }
 
-.tooltip.active {
+.getit-tooltip.active {
   pointer-events:all;
   opacity: 1;
   margin-top: 5px;
@@ -95,7 +69,15 @@ margin-top: -10px; display:block;
   -o-transition:      all 0.2s ease;
 }
 
-.tooltip.out {
+.getit-tooltip h2, .getit-tooltip p {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+.getit-tooltip p {
+    font-style:italic;
+}
+
+.getit-tooltip.out {
   opacity: 0;
   margin-top: -20px;
 }
@@ -109,6 +91,7 @@ margin-top: -10px; display:block;
     color: whitesmoke;
 }
 
-.getit-notfound .arrow {
-    display: none;
+.getit-notfound .getit-arrow:after {
+   background: #C00;
+   border: 2px solid #C00;   
 }

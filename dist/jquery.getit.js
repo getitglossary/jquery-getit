@@ -96,7 +96,7 @@
                         }
                         
                         // Make DIV and append to page 
-                        var $tooltip = $( "<div class=\"tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data( "getitLink" ) + "</p><div class=\"arrow\"></div></div>" ).appendTo( "body" );
+                        var $tooltip = $( "<div class=\"getit-tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data( "getitLink" ) + "</p><div class=\"getit-arrow\"></div></div>" ).appendTo( "body" );
     
                         // Position right away, so first appearance is smooth
                         var linkPosition = $(this).offset();
@@ -161,7 +161,7 @@
         $(document).keyup(function(e) {
             if (e.keyCode === 27) { 
                 // Remove all classes
-              $(".tooltip").each( function(){
+              $(".getit-tooltip").each( function(){
                  if($(this).hasClass("active")){
                     $(this).addClass("out");
                     var $this = $(this);
@@ -178,7 +178,7 @@
                return;
             }
               
-            $(".tooltip").each( function(){
+            $(".getit-tooltip").each( function(){
                 if($(this).hasClass("active")){
                     $(this).addClass("out");
                     var $this = $(this);
