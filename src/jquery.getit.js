@@ -18,7 +18,7 @@
 		    defaults = {
 				    glossary: "getitglossary.org",
 				    title: "Click to view the GET-IT Glossary definition of this term",
-				    linkTitle: "View full definition at the GET-IT Glossary &rarr;",
+				    linkTitle: "View the full definition at {{glossary}} &rarr;",
 				    notFound: "Definition not found. It may have been removed or updated. Please contact the site administrator",
 				    titleNotFound: "Term not found",
 		    };
@@ -31,6 +31,10 @@
 				// is generally empty as we don't want to alter the default options for
 				// future instances of the plugin
 				this.options = $.extend( {}, defaults, options );
+				
+				// replace  {{glossary}} with the specified glossary
+				this.options.linkTitle = this.options.linkTitle.replace( "{{glossary}}", this.options.glossary );
+				
 				this._defaults = defaults;
 				this._name = pluginName;
 				this.init();
@@ -67,7 +71,7 @@
                     // Load term definition
                     $(this).addClass( "getit-definition" );
                     $(this).prop( "title", options.title );
-                    $(this).data( "getit-link", "<a href=\"http://" + options.glossary + "/" + term + "\" target=\"_blank\">" + options.linkTitle + "</a>" );
+                    $(this).data( "getit-link", "<a href=\"http://" + options.glossary + "/term/" + term + "\" target=\"_blank\">" + options.linkTitle + "</a>" );
                     $(this).data( "tooltip", i );
                     
                  
