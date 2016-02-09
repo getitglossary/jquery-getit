@@ -108,16 +108,35 @@
 <h3>
 <a id="initialising-and-running-the-plugin" class="anchor" href="#initialising-and-running-the-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Initialising and running the plugin</h3>
 
-<h4>
-<a id="option-glossary" class="anchor" href="#option-glossary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: Glossary</h4>
+<h5>
+<a id="option-glossary" class="anchor" href="#option-glossary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: Glossary</h5>
 
-<p>This will nominate a specific instance of the GET-IT Glossary for the plugin to link to. This is useful for international or audience-specific versions of the glossary (eg. <strong>espanol</strong> or <strong>kids</strong>). If this is not set, the Glossary will default to the main instance at (<a href="http://getitglossary.org">http://getitglossary.org</a>).</p>
+<p>This will nominate a specific instance of the GET-IT Glossary for the plugin to link to. This is useful for international or audience-specific versions of the glossary (eg. <strong>espanol</strong> or <strong>kids</strong>). </p> 
+<pre>Default: <a href="http://getitglossary.org">http://getitglossary.org</a></pre>
+<br/>
+<h5>
+<a id="option-title" class="anchor" href="#option-title" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: Title</h5>
+
+<p>This will change the <em>title text</em> that appears when you hover the cursor over the cite tag.</p>
+<pre>Default: Click to view the GET-IT Glossary definition of this term</pre>
+<br/>
+<h5>
+<a id="option-link-title" class="anchor" href="#option-link-title" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: linkTitle</h5>
+This is the text that appears in a link below the definition.</p>
+<pre>Default: View the full definition at <strong>{{glossary}}</strong> &rarr;</pre>
+<p><strong>{{glossary}}</strong> is a placeholder that will be replaced with the glossary option.</p>
+<h5>
+<a id="option-not-found" class="anchor" href="#option-not-found" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: notFound</h5>
+This text is displayed when a link does not have an available definition.</p>
+<pre>Default: Definition not found. It may have been removed or updated. 
+         Please contact the site administrator.</pre>
 
 <h5>
-<a id="option-style" class="anchor" href="#option-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: Style</h5>
-
-<p>You can customise the <strong>cite</strong> link style. We recommend differentiating it from standard web links, either through the use of an accent colour or alternative styling, eg. dashed underline, box, bold or italic type.</p>
-
+<a id="option-title-not-found" class="anchor" href="#option-title-not-found" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: titleNotFound</h5>
+Edit this to change the popup title.</p>
+<pre>Default: Term not found.</pre>
+<hr/>
+<p><br/></p>
 <h3>
 <a id="plugin-initialisation-examples" class="anchor" href="#plugin-initialisation-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugin initialisation examples</h3>
 
@@ -139,8 +158,14 @@
 &lt;/script&gt;
 </code></pre>
 <br/>
-<p>In our example above, clicking on the term 'fair tests' will return this popup definition, itself containing links to other definitions.</p>
-    <img src="images/example.png" alt="example" width="451" height="204" style="border: 1px solid black">
+<p>In our example above, clicking on the term 'effects' will return this popup definition, itself containing links to other definitions. Note that other terms in the glossary are highlighted in bold.</p>
+<p>Also shown here is what happens when a term reference is incorrect or the term has moved to another location.</p>
+    <img src="images/example.png" alt="example" style="border: 1px solid black">
+<hr/>
+<p><br/></p>
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#styling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Styling the pop-ups and <strong>cite</strong> tags</h3>
+<p>You can completely change the look and feel of the tags and the pop-up bubbles by editing the linked file <strong><em>jquery-getit.css</em></strong>. 
 <hr/>
 <p><br/></p>
 <h3>
