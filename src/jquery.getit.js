@@ -19,6 +19,8 @@
 				    glossary: "getitglossary.org",
 				    title: "Click to view the GET-IT Glossary definition of this term",
 				    linkTitle: "View full definition at the GET-IT Glossary &rarr;",
+				    notFound: "Definition not found. It may have been removed or updated. Please contact the site administrator",
+				    titleNotFound: "Term not found",
 		    };
 
 		// The actual plugin constructor
@@ -68,9 +70,17 @@
                             url: "http://" + options.glossary + "/v1/terms/" + term,
                             context: $(this)
                         }).done(function( json ) {
+                            var definition;
+                            
                            // set definition
-                           var definition = json[0].definition;
-                    
+                           if( json[0] === undefined ){
+                               definition = options.notFound;
+                               $(this).data( "term", options.titleNotFound );
+                               $(this).data( "getitLink", "" );
+                            } else {
+                               definition = json[0].definition;
+                            }
+                            
                             // Make DIV and append to page 
                             var $tooltip = $("<div class=\"tooltip\" data-tooltip=\"" + i + "\"><h2>" + $(this).data("term") + "</h2><p>" + definition + "</p><p>" + $(this).data("getitLink") + "</p><div class=\"arrow\"></div></div>").appendTo("body");
         

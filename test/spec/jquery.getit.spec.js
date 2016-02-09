@@ -33,39 +33,24 @@
 
 	QUnit.test("enable custom config", function ( assert ) {
 		$fixture.getit({
-		    glossary: "getitglossary.org",
-		    title: "Click to view the GET-IT Glossary definition of this term",
-		    linkTitle: "View full definition at the GET-IT Glossary &rarr;",
+		    glossary: "Test >>> Glossary Name",
+		    title: "Test >>> title",
+		    linkTitle: "Test >>> linkTitle",
+            notFound: "Test >>> notFound",
+            titleNotFound: "Test >>> titleNotFound",
 		});
 
 		var pluginData = $fixture.data("plugin_getit");
 
 		assert.deepEqual(pluginData.options, {
-		    glossary: "getitglossary.org",
-		    title: "Click to view the GET-IT Glossary definition of this term",
-		    linkTitle: "View full definition at the GET-IT Glossary &rarr;",
+		    glossary: "Test >>> Glossary Name",
+		    title: "Test >>> title",
+		    linkTitle: "Test >>> linkTitle",
+            notFound: "Test >>> notFound",
+            titleNotFound: "Test >>> titleNotFound",
 		}, "extend plugin options");
 
 	});
-/*
 
-	QUnit.test("changes the element text", function ( assert ) {
-		$fixture.getit();
-
-		assert.equal($fixture.text(), "jQuery Boilerplate");
-	});
-*/
-
-/*
-	QUnit.test("has #yourOtherFunction working as expected", function ( assert ) {
-		$fixture.defaultPluginName();
-
-		var instance 		 = $fixture.data("plugin_defaultPluginName"),
-				expectedText = "foobar";
-
-		instance.yourOtherFunction(expectedText);
-		assert.equal($fixture.text(), expectedText);
-	});
-*/
 
 }(jQuery, QUnit));
