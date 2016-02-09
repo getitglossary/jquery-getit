@@ -63,68 +63,75 @@
                     }
 					    
 					// create lookup friendly version of the term
-                    var term = $(this).data("term").replace(/\s/g, "+" );
+                    var term = $(this).data("term");
+                    if( undefined  === term ){
+                        term = $(this).text();
+                        console.log( term );
+                    }
+                    
+                    // replace spaces
+                    term.replace(/\s/g, "+" );
                     
                     // Load term definition
-                    if( null !== term ){
-                        $(this).addClass( "getit-definition" );
-                        $(this).prop( "title", options.title );
-                        $(this).data( "getit-link", "<a href=\"http://" + options.glossary + "/" + term + "\" target=\"_blank\">" + options.linkTitle + "</a>" );
-                        $(this).data( "tooltip", i );
+                    $(this).addClass( "getit-definition" );
+                    $(this).prop( "title", options.title );
+                    $(this).data( "getit-link", "<a href=\"http://" + options.glossary + "/" + term + "\" target=\"_blank\">" + options.linkTitle + "</a>" );
+                    $(this).data( "tooltip", i );
+                    
+                 
+                    $.ajax({
+                        dataType: "json",
+                        url: "http://" + options.glossary + "/v1/terms/" + term,
+                        context: $(this)
+                    }).done(function( json ) {
+                        var definition;
                         
+                       // set definition
+                       if( json[0] === undefined ){
+                           definition = options.notFound;
+                           term = options.titleNotFound;
+                           $(this).data( "getitLink", "" );
+                        } else {
+                           definition = json[0].definition;
+                        }
+                        
+                        // Make DIV and append to page 
+                        var $tooltip = $("<div class=\"tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data("getitLink") + "</p><div class=\"arrow\"></div></div>").appendTo("body");
+    
+                        // Position right away, so first appearance is smooth
+                        var linkPosition = $(this).offset();
+                        
+                        $tooltip.css({
+                            top: linkPosition.top - $tooltip.outerHeight() - 13,
+                            left: linkPosition.left - ($tooltip.width()/2),
+                        });
+                        
+                    });
+                    
+                    // stop this script from firing multiple times.
+                    $(this).data( "processed", true );
                      
-                        $.ajax({
-                            dataType: "json",
-                            url: "http://" + options.glossary + "/v1/terms/" + term,
-                            context: $(this)
-                        }).done(function( json ) {
-                            var definition;
+                    $(this).on("click",function() {
+                        var $tooltip = $("div[data-tooltip=" + $(this).data("tooltip") + "]");
+                        var time = $.now().toString().substr(5);
                             
-                           // set definition
-                           if( json[0] === undefined ){
-                               definition = options.notFound;
-                               $(this).data( "term", options.titleNotFound );
-                               $(this).data( "getitLink", "" );
-                            } else {
-                               definition = json[0].definition;
-                            }
-                            
-                            // Make DIV and append to page 
-                            var $tooltip = $("<div class=\"tooltip\" data-tooltip=\"" + i + "\"><h2>" + $(this).data("term") + "</h2><p>" + definition + "</p><p>" + $(this).data("getitLink") + "</p><div class=\"arrow\"></div></div>").appendTo("body");
-        
-                            // Position right away, so first appearance is smooth
-                            var linkPosition = $(this).offset();
-                            
-                            $tooltip.css({
-                                top: linkPosition.top - $tooltip.outerHeight() - 13,
-                                left: linkPosition.left - ($tooltip.width()/2)
-                            });
-                            
+                        // Reposition tooltip, in case of page movement e.g. screen resize                        
+                        var linkPosition = $(this).offset();
+                        
+                        // minor adjustment if the tooltip is going to fall off the screen
+                        if(linkPosition.left - ($tooltip.width()/2) <= 0){ 
+                            linkPosition.left = ($tooltip.width()/2); 
+                        }
+                        
+                        $tooltip.css({
+                          top: linkPosition.top - $tooltip.outerHeight() - 13,
+                          left: linkPosition.left - ($tooltip.width()/2),
+                          zIndex: time,
                         });
                         
-                        // stop this script from firing multiple times.
-                        $(this).data( "processed", true );
-                         
-                        $(this).on("click",function() {
-                            var $tooltip = $("div[data-tooltip=" + $(this).data("tooltip") + "]");
-                            
-                            // Reposition tooltip, in case of page movement e.g. screen resize                        
-                            var linkPosition = $(this).offset();
-                            
-                            // minor adjustment if the tooltip is going to fall off the screen
-                            if(linkPosition.left - ($tooltip.width()/2) <= 0){ 
-                                linkPosition.left = ($tooltip.width()/2); 
-                            }
-                            
-                            $tooltip.css({
-                              top: linkPosition.top - $tooltip.outerHeight() - 13,
-                              left: linkPosition.left - ($tooltip.width()/2)
-                            });
-                            
-                            // Add class handles animation through CSS
-                            $tooltip.addClass("active");
-                        });
-                    }
+                        // Add class handles animation through CSS
+                        $tooltip.addClass("active");
+                    });
                 	});
 			}
 		});
