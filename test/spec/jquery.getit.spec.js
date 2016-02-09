@@ -35,6 +35,7 @@
 		$fixture.getit({
 		    glossary: "getitglossary.org",
 		    title: "Click to view the GET-IT Glossary definition of this term",
+		    linkTitle: "View full definition at the GET-IT Glossary &rarr;",
 		});
 
 		var pluginData = $fixture.data("plugin_getit");
@@ -42,6 +43,7 @@
 		assert.deepEqual(pluginData.options, {
 		    glossary: "getitglossary.org",
 		    title: "Click to view the GET-IT Glossary definition of this term",
+		    linkTitle: "View full definition at the GET-IT Glossary &rarr;",
 		}, "extend plugin options");
 
 	});

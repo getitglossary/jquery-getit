@@ -5,7 +5,6 @@ module.exports = function(config) {
             'dist/jquery.getit.min.js',
             'dist/jquery.getit.css',
             'assets/js/jquery.toolpop.js',
-            'assets/css/jquery.toolpop.css',
 			'test/setup.js',
             'test/spec/*'
     ],

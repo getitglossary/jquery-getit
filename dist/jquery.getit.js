@@ -26,6 +26,7 @@
 		    defaults = {
 				    glossary: "getitglossary.org",
 				    title: "Click to view the GET-IT Glossary definition of this term",
+				    linkTitle: "View full definition at the GET-IT Glossary &rarr;",
 		    };
 
 		// The actual plugin constructor
@@ -43,49 +44,79 @@
 
 		// Avoid Plugin.prototype conflicts
 		$.extend(Plugin.prototype, {
-				init: function () {
-						// Place initialization logic here
-						// You already have access to the DOM element and
-						// the options via the instance, e.g. this.element
-						// and this.settings
-						// you can add more functions like the one below and
-						// call them like the example bellow
-						this.crawl( this.element, this.options);
-				},
-				crawl: function (el, options) {
-						// some logic
-						$("cite").each( function(){
-        				        if ( $( this ).data( "processed" ) ){
-                              return false;
-                            }
-    						    var term = $(this).data("term").replace(/\s/g, "+" );
-                            var definition = null;
+			init: function () {
+					// Place initialization logic here
+					// You already have access to the DOM element and
+					// the options via the instance, e.g. this.element
+					// and this.settings
+					// you can add more functions like the one below and
+					// call them like the example bellow
+					this.crawl( this.element, this.options);
+			},
+			crawl: function (el, options) {
+				// some logic
+				$("cite").each( function( i ){
+				        if ( $( this ).data( "processed" ) ){
+                      return false;
+                    }
+					    
+					// create lookup friendly version of the term
+                    var term = $(this).data("term").replace(/\s/g, "+" );
+                    
+                    // Load term definition
+                    if( null !== term ){
+                        $(this).addClass( "getit-definition" );
+                        $(this).prop( "title", options.title );
+                        $(this).data( "getit-link", "<a href=\"http://" + options.glossary + "/" + term + "\" target=\"_blank\">" + options.linkTitle + "</a>" );
+                        $(this).data( "tooltip", i );
+                        
+                     
+                        $.ajax({
+                            dataType: "json",
+                            url: "http://" + options.glossary + "/v1/terms/" + term,
+                            context: $(this)
+                        }).done(function( json ) {
+                           // set definition
+                           var definition = json[0].definition;
+                    
+                            // Make DIV and append to page 
+                            var $tooltip = $("<div class=\"tooltip\" data-tooltip=\"" + i + "\"><h2>" + $(this).data("term") + "</h2><p>" + definition + "</p><p>" + $(this).data("getitLink") + "</p><div class=\"arrow\"></div></div>").appendTo("body");
+        
+                            // Position right away, so first appearance is smooth
+                            var linkPosition = $(this).offset();
                             
-                            $.ajax({
-                              type: "GET",
-                              url: "http://" + options.glossary + "/v1/terms/" + term,
-                              async: false,
-                              contentType: "application/json",
-                              dataType: "jsonp",
-                              success: function( json ){
-                                  console.log( "output >>> " + json );
-                              }
-                              
+                            $tooltip.css({
+                                top: linkPosition.top - $tooltip.outerHeight() - 13,
+                                left: linkPosition.left - ($tooltip.width()/2)
                             });
                             
-                            console.log( "definition >>> " + definition );
-                            $(this).addClass( "getit-definition" );
-                            $(this).prop( "title", options.title );
-                            $(this).data( "processed", true );
-                            $(this).data( "definition", definition );
-                            $(this).data( "getit-link", "http://" + options.glossary + "/" + term );
-                            console.log( $(this).data() );
-    						    if($(this).data("term"))
-    						    {
-    						        console.log("Term >>> " + $(this).data("term") );
+                        });
+                        
+                        // stop this script from firing multiple times.
+                        $(this).data( "processed", true );
+                         
+                        $(this).on("click",function() {
+                            var $tooltip = $("div[data-tooltip=" + $(this).data("tooltip") + "]");
+                            
+                            // Reposition tooltip, in case of page movement e.g. screen resize                        
+                            var linkPosition = $(this).offset();
+                            
+                            // minor adjustment if the tooltip is going to fall off the screen
+                            if(linkPosition.left - ($tooltip.width()/2) <= 0){ 
+                                linkPosition.left = ($tooltip.width()/2); 
                             }
-    						});
-				}
+                            
+                            $tooltip.css({
+                              top: linkPosition.top - $tooltip.outerHeight() - 13,
+                              left: linkPosition.left - ($tooltip.width()/2)
+                            });
+                            
+                            // Add class handles animation through CSS
+                            $tooltip.addClass("active");
+                        });
+                    }
+                	});
+			}
 		});
 
 		// A really lightweight plugin wrapper around the constructor,
@@ -99,3 +130,43 @@
 		};
 
 })( jQuery, window, document );
+
+/*
+* Additional script to instantiate the popover effect. Feel free to extract this into a separate file if needed.
+*/
+(function($) {
+    $(document).ready(function() {
+     
+        $(document).keyup(function(e) {
+            if (e.keyCode === 27) { 
+                // Remove all classes
+              $(".tooltip").each( function(){
+                 if($(this).hasClass("active")){
+                    $(this).addClass("out");
+                    var $this = $(this);
+                    setTimeout( function() {
+                        $this.removeClass("active").removeClass("out");
+                    }, 300 );
+                }
+            });
+            }   // escape key maps to keycode `27`
+        });
+           
+        $(document).click(function(e) {
+          if(e.target.nodeName === "CITE"){
+               return;
+            }
+              
+            $(".tooltip").each( function(){
+                if($(this).hasClass("active")){
+                    $(this).addClass("out");
+                    var $this = $(this);
+                    setTimeout( function() {
+                        $this.removeClass("active").removeClass("out");
+                    }, 300 );
+                }
+            });
+        });
+        
+    });
+})(jQuery);

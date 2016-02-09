@@ -1,4 +1,4 @@
-// IIFE to ensure safe use of $
+;// IIFE to ensure safe use of $
 (function( $ ) {
 
   // Create plugin
@@ -56,7 +56,7 @@
 
 (function($) {
   $(document).ready(function() {
-     $("cite[data-term]").tooltips();
+     //$("cite[data-term]").tooltips();
      
      $(document).keyup(function(e) {
         if (e.keyCode == 27) { 
