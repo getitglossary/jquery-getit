@@ -122,19 +122,25 @@
 <br/>
 <h5>
 <a id="option-link-title" class="anchor" href="#option-link-title" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: linkTitle</h5>
-This is the text that appears in a link below the definition.</p>
+<p>This is the text that appears in a link below the definition.<br/><strong>{{glossary}}</strong> is a placeholder that will be replaced with the value of <strong>glossary</strong> option.</p>
 <pre>Default: View the full definition at <strong>{{glossary}}</strong> &rarr;</pre>
-<p><strong>{{glossary}}</strong> is a placeholder that will be replaced with the glossary option.</p>
+<br/>
+<h5>
+<a id="option-hide-not-found" class="anchor" href="#option-hide-not-found" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: hideNotFound</h5>
+When set to <strong>true</strong>, the plugin will remove <strong>&lt;cite&gt;</strong> tags from any term which has no available definition, gracefully cleaning up the page copy and preventing the "Definition not found" popups from appearing.</p>
+<pre>Default: false (missing definitions are always shown)</pre>
+<br/>
+<h5>
+<a id="option-title-not-found" class="anchor" href="#option-title-not-found" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: titleNotFound</h5>
+Edit this to change the popup title.</p>
+<pre>Default: Term not found.</pre>
+<br/>
 <h5>
 <a id="option-not-found" class="anchor" href="#option-not-found" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: notFound</h5>
 This text is displayed when a link does not have an available definition.</p>
 <pre>Default: Definition not found. It may have been removed or updated. 
          Please contact the site administrator.</pre>
-
-<h5>
-<a id="option-title-not-found" class="anchor" href="#option-title-not-found" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Option: titleNotFound</h5>
-Edit this to change the popup title.</p>
-<pre>Default: Term not found.</pre>
+<br/>
 <hr/>
 <p><br/></p>
 <h3>
@@ -147,19 +153,20 @@ Edit this to change the popup title.</p>
     });
 &lt;/script&gt;
 </code></pre>
-
-<p>Initialise the plugin with the Spanish version of the Glossary:</pre>
+<br/>
+<p>Initialise the plugin with the Spanish version of the Glossary and prevent missing definitions from being cited:</pre>
 <pre><code>&lt;script&gt;
     $(document).ready( function(){
         $('<strong><em>#main-content</em></strong>').getit({
             glossary: '<strong><em>es.getitglossary.org</em></strong>',
+            hideNotFound: <strong>true</strong>,
         });
     });
 &lt;/script&gt;
 </code></pre>
 <br/>
 <p>In our example above, clicking on the term 'effects' will return this popup definition, itself containing links to other definitions. Note that other terms in the glossary are highlighted in bold.</p>
-<p>Also shown here is what happens when a term reference is incorrect or the term has moved to another location.</p>
+<p>Also shown here is what happens when a term is not found and <strong>hideNotFound</strong> is set to <strong>false</strong>.</p>
     <img src="images/example.png" alt="example" style="border: 1px solid black">
 <hr/>
 <p><br/></p>
@@ -181,7 +188,7 @@ Designer: Tom Brooks</p>
 <h3>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support & Contact</h3>
 
-<p>Having trouble with this plugin? Have an enquiry about accessing and using the GET-IT Glossary itself? [contact support] or raise an issue in the plugin's <a href="https://github.com/getitglossary/jquery-getit">Github repository</a> and we’ll help you sort it out.</p>
+<p>Having trouble with this plugin? Have an enquiry about accessing and using the GET-IT Glossary itself? Want to tell us about how your website is using the plugin? [contact support] or raise an issue in the plugin's <a href="https://github.com/getitglossary/jquery-getit">Github repository</a> and we’ll help you sort it out.</p>
 <img src="images/monkey.png" alt="Monkey" style="display: block; margin: auto; clear: both; border:none;">
       </section>
     </div>
