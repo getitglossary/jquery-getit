@@ -27,6 +27,7 @@
 				    glossary: "getitglossary.org",
 				    title: "Click to view the GET-IT Glossary definition of this term",
 				    linkTitle: "View the full definition at {{glossary}} &rarr;",
+				    hideNotFound: false,
 				    notFound: "Definition not found. It may have been removed or updated. Please contact the site administrator.",
 				    titleNotFound: "Term not found",
 		    };
@@ -88,12 +89,17 @@
                         context: $(this)
                     }).done(function( json ) {
                         var definition;
+                        var notFound = false;
                         
                        // set definition
                        if( json[0] === undefined ){
                            definition = options.notFound;
                            term = options.titleNotFound;
+                           notFound = true,
                            $(this).data( "getitLink", "" );
+                           if( options.hideNotFound ){
+                               $(this).replaceWith( $(this).text() );
+                           }
                         } else {
                            definition = json[0].definition;
                         }
@@ -108,21 +114,22 @@
                         	definition = definition.replace( pattern, replacement );
                         	definition = definition.replace( pattern_alt, replacement );
                         	
-                        // Make DIV and append to page 
-                        var $tooltip = $( "<div class=\"getit-tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data( "getitLink" ) + "</p><div class=\"getit-arrow\"></div></div>" ).appendTo( "body" );
-    
-                        // Position right away, so first appearance is smooth
-                        var linkPosition = $(this).offset();
-                        
-                        $tooltip.css({
-                            top: linkPosition.top - $tooltip.outerHeight() - 13,
-                            left: linkPosition.left - ($tooltip.width()/2),
-                        });
-                        
-                        if( json[0] === undefined ){
-                            $tooltip.addClass( "getit-notfound" );
+                        	if( !notFound || !options.hideNotFound ){
+                            // Make DIV and append to page 
+                            var $tooltip = $( "<div class=\"getit-tooltip\" data-tooltip=\"" + i + "\"><h2>" + term + "</h2><p>" + definition + "</p><p>" + $(this).data( "getitLink" ) + "</p><div class=\"getit-arrow\"></div></div>" ).appendTo( "body" );
+        
+                            // Position right away, so first appearance is smooth
+                            var linkPosition = $(this).offset();
+                            
+                            $tooltip.css({
+                                top: linkPosition.top - $tooltip.outerHeight() - 13,
+                                left: linkPosition.left - ($tooltip.width()/2),
+                            });
+                            
+                            if( json[0] === undefined ){
+                                $tooltip.addClass( "getit-notfound" );
+                            }
                         }
-                        
                     });
                     
                     // stop this script from firing multiple times.

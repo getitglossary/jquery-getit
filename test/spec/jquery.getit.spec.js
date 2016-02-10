@@ -36,6 +36,7 @@
 		    glossary: "Test >>> Glossary Name",
 		    title: "Test >>> title",
 		    linkTitle: "Test >>> linkTitle",
+            hideNotFound: false,
             notFound: "Test >>> notFound",
             titleNotFound: "Test >>> titleNotFound",
 		});
@@ -46,6 +47,7 @@
 		    glossary: "Test >>> Glossary Name",
 		    title: "Test >>> title",
 		    linkTitle: "Test >>> linkTitle",
+            hideNotFound: false,
             notFound: "Test >>> notFound",
             titleNotFound: "Test >>> titleNotFound",
 		}, "extend plugin options");

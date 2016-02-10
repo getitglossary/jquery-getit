@@ -18,7 +18,14 @@
 		<script>
 		    /* Run through all <p> tags on the page and scan for <cite> */
 			$(function() {
-				$('p').getit({ glossary: "getitglossary.org"});
+				$('p').getit({ 
+    				    glossary: "getitglossary.org",
+				    title: "Click to view the GET-IT Glossary definition of this term",
+				    linkTitle: "View the full definition at {{glossary}} &rarr;",
+				    hideNotFound: false,
+				    notFound: "Definition not found. It may have been removed or updated. Please contact the site administrator.",
+				    titleNotFound: "Term not found",
+                });
 			});
 		</script>
 		<!-- END OF SCRIPTS -->
