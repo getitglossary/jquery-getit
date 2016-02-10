@@ -147,6 +147,11 @@
                         
                         // Add class handles animation through CSS
                         $tooltip.addClass("active");
+                        
+                        // Record a 'hit' against the glossary lookups
+                        $.get({
+                            url: "http://" + options.glossary + "/v1/hit/" + term,
+                        });
                     });
                 	});
 			}
